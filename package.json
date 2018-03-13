@@ -2,7 +2,7 @@
   "name": "csv-change",
   "description": "Change excel file to csv",
   "version": "0.0.1",
-  "main": "src/index.js",
+  "bin": "src/index.js",
   "license": "MIT",
   "dependencies": {
     "aged-leads": "^1.1.0",
