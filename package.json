@@ -1,5 +1,5 @@
 {
-  "name": "csv-change",
+  "name": "csv-gen",
   "description": "Change excel file to csv",
   "version": "0.0.1",
   "bin": "src/index.js",
