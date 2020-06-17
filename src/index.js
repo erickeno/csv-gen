@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-
 const fs = require('fs-extra');
 const Papa = require('papaparse');
 const prompts = require('prompts');
-const { Convert } = require('aged-leads');
+const excelToJson = require('./utils');
+const trimEnd = require('lodash.trimend');
 
-const convert = new Convert();
 const question = {
   type: 'text',
   name: 'inputFile',
@@ -17,9 +16,9 @@ async function changeToCsv() {
   try {
     const answer = await prompts(question);
     if (answer && answer.inputFile) {
-      const inputFile = answer.inputFile.replace(/\s/g, '');
+      const inputFile = trimEnd(answer.inputFile);
       const outputFile = inputFile.replace(/xlsx$/gi, 'csv');
-      const data = await convert.excelToJson(inputFile);
+      const data = await excelToJson(inputFile);
 
       // @ts-ignore
       const csv = Papa.unparse(data, opts);
